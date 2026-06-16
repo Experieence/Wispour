@@ -1,0 +1,11 @@
+Experimental Investigation and Calibration Refinement
+
+The initial version of the system classified soil conditions using a threshold-based calibration approach. Sensor readings were collected from a fully watered condition and a presumed dry condition, allowing a threshold value to be selected for distinguishing between wet and dry soil states.
+
+While this approach enabled successful implementation of a working moisture classification system, it assumed that soil behaviour could be adequately represented by two discrete states: wet and dry.
+
+To better understand the behaviour of the soil-sensor system, a series of controlled experiments were conducted. These experiments investigated how sensor readings changed over time, how the system responded to watering events, and whether readings eventually stabilised after water was added.
+
+The results suggested that soil moisture behaviour was more complex than a simple wet/dry classification. Following watering, sensor readings exhibited a rapid decrease before gradually moving towards a more stable operating region. This indicated the presence of transient and stabilised moisture states that were not represented in the original model.
+
+These findings motivated further investigation into system behaviour and highlighted opportunities for future improvements, such as stabilisation detection, behavioural state classification, and soil-specific calibration.
