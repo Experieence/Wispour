@@ -1,50 +1,63 @@
-# Wispour
-### IoT Irrigation Aiding System
+# Wispour — IoT Irrigation Assistance System
 
-Wispour is a final year project focused on designing an IoT-based irrigation aiding
-system to optimize water usage through sensor-based monitoring and automated control.
+A low-cost, infrastructure-independent soil moisture monitoring 
+system for small-scale farming in Benin City, Edo State, Nigeria.
 
-## Objectives
-- Study existing smart irrigation systems
-- Design an efficient IoT-based irrigation architecture
-- Develop a methodology for data collection and decision-making
+Built as a final year project at the University of East Anglia,
+School of Computing Sciences, 2026.
 
+## The Problem
+Manual irrigation on small-scale farms in Benin City relies 
+entirely on personal experience, leading to inefficient water 
+use during the December to March dry season. Existing IoT 
+irrigation systems assume cloud connectivity, making them 
+unsuitable for rural environments with limited infrastructure.
 
-## Features
-- Soil moisture monitoring
-- Averaged sensor readings for stability
-- Dry/Wet state detection
-- Wi-Fi data transmission
-- Web-based user interface
+## The Solution
+A five-layer IoT system that classifies soil conditions as 
+UNKNOWN, DRY, or WET using a capacitive sensor and consecutive 
+confirmation mechanism, served via a locally hosted web 
+interface with no external internet dependency.
+
+## Hardware
+- Raspberry Pi Pico 2W
+- SEN0193 Capacitive Soil Moisture Sensor v2.0
+- Red LED indicator (GPIO 15, 330Ω resistor)
+- Total cost: approximately £18
 
 ## System Architecture
-![System Diagram](designs/Block Diagram.png)
-
-
-
-## Hardware Components
-- Capacitive Soil Moisture Sensor (DFRobot SEN0193)
-- Raspberry Pi Pico 2 W
-- USB Power Supply
-
+Five layers: Sensing → Processing → Communication → 
+Application → Output
 
 ## How It Works
-1. Sensor reads soil moisture (analogue signal)
-2. Microcontroller converts to digital (ADC)
-3. Multiple readings are sampled and averaged
-4. Average is compared to a threshold
-5. State (DRY/WET) is determined
-6. Data is sent to server
-7. User is notified via interface
+1. Sensor reads soil moisture every 10 seconds
+2. 10 readings averaged to reduce noise
+3. Average compared against calibrated threshold of 36,000
+4. Five consecutive qualifying readings confirm state change
+5. State served via HTTP to web interface at 192.168.4.1
+6. Red LED activates on DRY confirmation
 
 ## Setup
-1. Connect sensor to microcontroller
-2. Upload MicroPython code
-3. Connect to Wi-Fi
-4. Run server
-5. Access web interface
+1. Flash MicroPython to Pico 2W
+2. Upload main.py via Thonny
+3. Connect sensor to GPIO 28, LED to GPIO 15
+4. Connect to WiFi network: SSID Soilmonitor, password 12345678
+5. Open browser and navigate to 192.168.4.1
 
-## Current Status
-- Literature review in progress
-- Methodology design upcoming
-- Implementation phase pending
+## Calibration
+Run calibration.py to establish threshold for your soil type.
+Current calibration: Dry 52,241 / Wet 19,926 / Threshold 36,000
+
+## Results
+All six test cases met. Calibration separation of 32,315 ADC 
+units confirmed. No false state transitions observed during 
+stable conditions.
+
+## Future Development
+- CSV data logging for longitudinal analysis
+- Finding out behavioural patterns of soil and
+- 
+
+## Project Status
+Active development. Inspection completed June 2026.
+Continuing development toward ML extension.
