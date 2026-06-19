@@ -22,7 +22,7 @@ interface with no external internet dependency.
 ## Hardware
 - Raspberry Pi Pico 2W
 - SEN0193 Capacitive Soil Moisture Sensor v2.0
-- Red LED indicator (GPIO 15, 330Ω resistor)
+- Red LED indicator (GPIO 15, 220Ω resistor)
 - Total cost: approximately £18
 
 ## System Architecture
