@@ -1,63 +1,207 @@
-# Wispour — IoT Irrigation Assistance System
+# 🌱 Wispour
 
-A low-cost, infrastructure-independent soil moisture monitoring 
-system for small-scale farming in Benin City, Edo State, Nigeria.
+An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions.
 
-Built as a final year project at the University of East Anglia,
-School of Computing Sciences, 2026.
+Wispour began as a simple threshold-based soil moisture monitoring system using a Raspberry Pi Pico 2 W. Through experimentation, I realised that representing soil using only binary "wet" and "dry" states does not accurately reflect real soil-water interactions.
 
-## The Problem
-Manual irrigation on small-scale farms in Benin City relies 
-entirely on personal experience, leading to inefficient water 
-use during the December to March dry season. Existing IoT 
-irrigation systems assume cloud connectivity, making them 
-unsuitable for rural environments with limited infrastructure.
+The project is now evolving into a research-driven system that combines embedded systems, experimentation, automated data collection, and data analysis to develop a more representative model of soil behaviour.
 
-## The Solution
-A five-layer IoT system that classifies soil conditions as 
-UNKNOWN, DRY, or WET using a capacitive sensor and consecutive 
-confirmation mechanism, served via a locally hosted web 
-interface with no external internet dependency.
+> 🚧 **Project Status:** Active Development (Version 2 in Progress)
 
-## Hardware
-- Raspberry Pi Pico 2W
-- SEN0193 Capacitive Soil Moisture Sensor v2.0
-- Red LED indicator (GPIO 15, 220Ω resistor)
-- Total cost: approximately £18
+---
 
-## System Architecture
-Five layers: Sensing → Processing → Communication → 
-Application → Output
+# 🎯 Project Goal
 
-## How It Works
-1. Sensor reads soil moisture every 10 seconds
-2. 10 readings averaged to reduce noise
-3. Average compared against calibrated threshold of 36,000
-4. Five consecutive qualifying readings confirm state change
-5. State served via HTTP to web interface at 192.168.4.1
-6. Red LED activates on DRY confirmation
+The goal of Wispour is to help plant owners and farmers make better irrigation decisions by understanding soil behaviour rather than relying solely on fixed moisture thresholds.
 
-## Setup
-1. Flash MicroPython to Pico 2W
-2. Upload main.py via Thonny
-3. Connect sensor to GPIO 28, LED to GPIO 15
-4. Connect to WiFi network: SSID Soilmonitor, password 12345678
-5. Open browser and navigate to 192.168.4.1
+Instead of simply displaying whether soil is "wet" or "dry", future versions aim to model how soil changes over time, allowing more informative and useful irrigation recommendations.
 
-## Calibration
-Run calibration.py to establish threshold for your soil type.
-Current calibration: Dry 52,241 / Wet 19,926 / Threshold 36,000
+---
 
-## Results
-All six test cases met. Calibration separation of 32,315 ADC 
-units confirmed. No false state transitions observed during 
-stable conditions.
+# 📦 Technologies
 
-## Future Development
-- CSV data logging for longitudinal analysis
-- Finding out behavioural patterns of soil and
-- 
+- Raspberry Pi Pico 2 W
+- MicroPython
+- Python
+- HTML
+- CSS
+- Wi-Fi Access Point
+- SPI
+- SD Card Logging *(Currently Developing)*
+- Git & GitHub
 
-## Project Status
-Active development. Inspection completed June 2026.
-Continuing development toward ML extension.
+---
+
+# ✨ Version 1 Features
+
+Current Version 1 includes:
+
+- Soil moisture sensing
+- ADC averaging to reduce sensor noise
+- Binary wet/dry classification
+- Wi-Fi Access Point
+- Embedded web interface
+- LED status indication
+- Configurable sampling interval
+
+---
+
+# 🔬 Engineering Process
+
+Rather than simply adding features, Wispour is developed through an iterative engineering process.
+
+Each new version is based on evidence collected through controlled experiments.
+
+```
+Problem
+
+↓
+
+Prototype
+
+↓
+
+Experiment
+
+↓
+
+Collect Evidence
+
+↓
+
+Identify Limitations
+
+↓
+
+Improve System
+
+↓
+
+Repeat
+```
+
+This allows every improvement to be justified by experimental findings rather than assumptions.
+
+---
+
+# 🧪 Experiments
+
+One of the main focuses of the project is understanding soil behaviour.
+
+Current experiments investigate questions such as:
+
+- How does the soil moisture sensor respond after water is added?
+- How repeatable are sensor readings?
+- How long does soil take to stabilise?
+- What limitations exist within a binary wet/dry model?
+- How can these observations improve future versions of the system?
+
+Future experiments will be automated using SD card logging to enable long-duration data collection without manual supervision.
+
+---
+
+# 🧠 What I've Learned
+
+This project has introduced me to multiple engineering disciplines while solving a real-world problem.
+
+## Embedded Systems
+
+- ADC sampling
+- GPIO
+- SPI communication
+- Sensor integration
+- SD card communication
+
+## IoT
+
+- Wi-Fi networking
+- Embedded web servers
+- Browser-based interfaces
+
+## Software Engineering
+
+- Modular Python development
+- State machines
+- System architecture
+- Version control
+
+## Experimental Design
+
+- Controlled experiments
+- Hypothesis-driven testing
+- Repeatability
+- Evidence-based development
+
+## Data Collection & Analysis
+
+- Sensor calibration
+- Data logging
+- Noise reduction through averaging
+- Behavioural analysis
+- Statistical thinking
+
+## Systems Engineering
+
+- Breaking complex systems into subsystems
+- Identifying assumptions and limitations
+- Iterative improvement
+- Designing based on evidence
+
+---
+
+# 🚧 Current Development
+
+Version 2 is currently under development.
+
+Current work includes:
+
+- Automated SD card data logging
+- Battery-powered operation
+- Long-duration controlled experiments
+- Soil stabilisation analysis
+- Behaviour-based soil state modelling
+- Improving the overall system architecture
+
+---
+
+# 🚀 Roadmap
+
+## ✅ Version 1
+
+- Soil moisture monitoring
+- Binary wet/dry classification
+- Web interface
+- Calibration
+
+## 🚧 Version 2 (Current)
+
+- SD card logging
+- Automated experimentation
+- Behavioural analysis
+- Improved soil state modelling
+
+## 🔮 Future Versions
+
+- Statistical analysis
+- Machine learning exploration
+- Cloud connectivity
+- Predictive irrigation recommendations
+- Multi-sensor integration
+
+---
+
+# 💭 Philosophy
+
+One of the biggest lessons from this project has been that building a working system is only one part of engineering.
+
+Understanding why a system behaves the way it does requires observation, experimentation, documentation, and continual refinement.
+
+Rather than treating Version 1 as a finished product, Wispour is being developed as an evolving engineering project where each experiment informs the design of the next iteration.
+
+---
+
+# 📈 Current Progress
+
+This project is actively being developed.
+
+The repository documents not only the implementation of the system, but also the engineering process, experiments, design decisions, and lessons learned throughout development.
