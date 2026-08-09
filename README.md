@@ -23,7 +23,8 @@ Raw data: [`datasets/TC2_stability_test_raw.txt`](datasets/TC2_stability_test_ra
 
 Analysis: [`analysis/calibration_summary.md`](analysis/calibration_summary.md)
 
-This is the specific, evidence is the reason Version 2 moves away from a binary classification model.
+This evidence is the reason Version 2 moves away from a binary classification model.
+
 
 ---
 
