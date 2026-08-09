@@ -1,6 +1,6 @@
 # 🌱 Wispour
 
-An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions. Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves see [Key Finding](#-key-finding) below. The project is now evolving into a research-driven system combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
+An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions. Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves see [Key Finding](#-key-findings) below. The project is now evolving into a research-driven system combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
 
 **Status:** Active development — Version 2 in progress.
 
@@ -12,7 +12,7 @@ Help plant owners and small-scale farmers make better irrigation decisions by un
 
 ---
 
-## 🔍 Key Finding
+## 🔍 Key Findings
 
 Calibration in Version 1 used water submersion to establish the "wet" reference point. Stability testing later showed this doesn't represent real, stabilised wet soil:
 
@@ -23,7 +23,7 @@ Raw data: [`datasets/TC2_stability_test_raw.txt`](datasets/TC2_stability_test_ra
 
 Analysis: [`analysis/calibration_summary.md`](analysis/calibration_summary.md)
 
-This is the specific, evidenced reason Version 2 moves away from a binary classification model.
+This is the specific, evidence is the reason Version 2 moves away from a binary classification model.
 
 ---
 
@@ -36,7 +36,7 @@ This is the specific, evidenced reason Version 2 moves away from a binary classi
 - HTML/CSS (served on-device)
 
 **Version 2 (in progress):**
-- SPI · SD card logging — [status: `[e.g. wiring complete, driver code in progress / basic writes working, not yet integrated into main loop]`]
+- SPI: SD card logging — [status: `[e.g. wiring complete, driver code in progress / basic writes working, not yet integrated into main loop]`]
 - Battery-powered operation — [status: `[e.g. power budget calculated, not yet tested on hardware]`]
 
 ---
@@ -82,7 +82,7 @@ Current experiments investigate:
 
 Full experimental methodology: [`experiments/test_plan.md`](experiments/test_plan.md)
 
-Version 2 experiments will use automated SD card logging to run long-duration tests (soil stabilisation over hours/days) without manual supervision — not achievable with V1's REPL-based manual data collection.
+Version 2 experiments will use automated SD card logging to run long-duration tests (soil stabilisation over hours/days) without manual supervision not achievable with V1's REPL-based manual data collection.
 
 ---
 
@@ -122,4 +122,4 @@ Version 2 experiments will use automated SD card logging to run long-duration te
 
 ## 📈 Progress
 
-This repository documents the implementation, the experiments behind each design decision, and the specific limitations found along the way — see [`docs/design_decisions.md`](docs/design_decisions.md) for the fuller reasoning behind architecture choices (e.g. why the system runs entirely on-device with no external server).
+This repository documents the implementation, the experiments behind each design decision, and the specific limitations found along the way. See [`docs/design_decisions.md`](docs/design_decisions.md) for the fuller reasoning behind architecture choices (e.g. why the system runs entirely on-device with no external server).
