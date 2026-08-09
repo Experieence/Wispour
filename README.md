@@ -1,6 +1,6 @@
 # 🌱 Wispour
 
-An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions. Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves. See [Key Finding](#-key-findings) below. The project is now evolving into a research-driven system combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
+An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions. Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves. See [Key Findings](#-key-findings) below. The project is now evolving into a research-driven system combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
 
 **Status:** Active development — Version 2 in progress.
 
