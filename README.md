@@ -13,8 +13,8 @@ Help plant owners and small-scale farmers make better irrigation decisions by un
 ---
 
 ## 🔍 Key Findings
-Work in progess
 ---
+WORK IN PROGRESS 
 
 ## 📦 Technologies
 
