@@ -22,6 +22,7 @@ Calibration in Version 1 used water submersion to establish the "wet" reference 
 - A separate transition test captured a **transient reading** immediately after watering (43,278) sitting between the dry range (~53,000+) and the eventual stabilised wet range (~19,500) — evidence that the sensor doesn't settle instantly, and a threshold calibrated on peak submersion doesn't capture this.
 
 Raw data: [`datasets/TC2_stability_test_raw.txt`](datasets/TC2_stability_test_raw.txt), [`datasets/TC4_threshold_transition_raw.txt`](datasets/TC4_threshold_transition_raw.txt)
+
 Analysis: [`analysis/calibration_summary.md`](analysis/calibration_summary.md)
 
 This is the specific, evidenced reason Version 2 moves away from a binary classification model.
@@ -35,7 +36,6 @@ This is the specific, evidenced reason Version 2 moves away from a binary classi
 - ADC sampling
 - Wi-Fi Access Point + embedded HTTP server
 - HTML/CSS (served on-device)
-- Git & GitHub
 
 **Version 2 (in progress):**
 - SPI · SD card logging — [status: `[e.g. wiring complete, driver code in progress / basic writes working, not yet integrated into main loop]`]
@@ -53,7 +53,8 @@ This is the specific, evidenced reason Version 2 moves away from a binary classi
 - LED status indication
 - Configurable sampling interval (10s demo / 5min field deployment)
 
-Firmware: [`firmware/main.py`](firmware/main.py) · Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
+Firmware: [`firmware/main.py`](firmware/main.py) 
+Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
 
 ---
 
