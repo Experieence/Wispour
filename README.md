@@ -13,19 +13,7 @@ Help plant owners and small-scale farmers make better irrigation decisions by un
 ---
 
 ## 🔍 Key Findings
-
-Calibration in Version 1 used water submersion to establish the "wet" reference point. Stability testing later showed this doesn't represent real, stabilised wet soil:
-
-- A repeat stability test on damp (not submerged) soil showed **16.4% drift** over 60 minutes, with the maximum reading crossing above the calibrated threshold — meaning damp soil risked being misclassified as DRY.
-- A separate transition test captured a **transient reading** immediately after watering (43,278) sitting between the dry range (~53,000+) and the eventual stabilised wet range (~19,500) — evidence that the sensor doesn't settle instantly, and a threshold calibrated on peak submersion doesn't capture this.
-
-Raw data: [`datasets/TC2_stability_test_raw.txt`](datasets/TC2_stability_test_raw.txt), [`datasets/TC4_threshold_transition_raw.txt`](datasets/TC4_threshold_transition_raw.txt)
-
-Analysis: [`analysis/calibration_summary.md`](analysis/calibration_summary.md)
-
-This evidence is the reason Version 2 moves away from a binary classification model.
-
-
+Work in progess
 ---
 
 ## 📦 Technologies
