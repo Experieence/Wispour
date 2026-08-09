@@ -2,206 +2,125 @@
 
 An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions.
 
-Wispour began as a simple threshold-based soil moisture monitoring system using a Raspberry Pi Pico 2 W. Through experimentation, I realised that representing soil using only binary "wet" and "dry" states does not accurately reflect real soil-water interactions.
+Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves — see [Key Finding](#-key-finding) below. The project is now evolving into a research-driven system combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
 
-The project is now evolving into a research-driven system that combines embedded systems, experimentation, automated data collection, and data analysis to develop a more representative model of soil behaviour.
-
-> 🚧 **Project Status:** Active Development (Version 2 in Progress)
+**Status:** Active development — Version 2 in progress.
 
 ---
 
-# 🎯 Project Goal
+## 🎯 Goal
 
-The goal of Wispour is to help plant owners and farmers make better irrigation decisions by understanding soil behaviour rather than relying solely on fixed moisture thresholds.
-
-Instead of simply displaying whether soil is "wet" or "dry", future versions aim to model how soil changes over time, allowing more informative and useful irrigation recommendations.
+Help plant owners and small-scale farmers make better irrigation decisions by understanding soil behaviour, not just reacting to a fixed threshold. Future versions aim to model how soil moisture changes *over time*, rather than reporting a single wet/dry label.
 
 ---
 
-# 📦 Technologies
+## 🔍 Key Finding
 
-- Raspberry Pi Pico 2 W
-- MicroPython
-- Python
-- HTML
-- CSS
-- Wi-Fi Access Point
-- SPI
-- SD Card Logging *(Currently Developing)*
+Calibration in Version 1 used water submersion to establish the "wet" reference point. Stability testing later showed this doesn't represent real, stabilised wet soil:
+
+- A repeat stability test on damp (not submerged) soil showed **16.4% drift** over 60 minutes, with the maximum reading crossing above the calibrated threshold — meaning damp soil risked being misclassified as DRY.
+- A separate transition test captured a **transient reading** immediately after watering (43,278) sitting between the dry range (~53,000+) and the eventual stabilised wet range (~19,500) — evidence that the sensor doesn't settle instantly, and a threshold calibrated on peak submersion doesn't capture this.
+
+Raw data: [`datasets/TC2_stability_test_raw.txt`](datasets/TC2_stability_test_raw.txt), [`datasets/TC4_threshold_transition_raw.txt`](datasets/TC4_threshold_transition_raw.txt)
+Analysis: [`analysis/calibration_summary.md`](analysis/calibration_summary.md)
+
+This is the specific, evidenced reason Version 2 moves away from a binary classification model.
+
+---
+
+## 📦 Technologies
+
+**Version 1 (built):**
+- Raspberry Pi Pico 2 W · MicroPython
+- ADC sampling
+- Wi-Fi Access Point + embedded HTTP server
+- HTML/CSS (served on-device)
 - Git & GitHub
 
+**Version 2 (in progress):**
+- SPI · SD card logging — [status: `[e.g. wiring complete, driver code in progress / basic writes working, not yet integrated into main loop]`]
+- Battery-powered operation — [status: `[e.g. power budget calculated, not yet tested on hardware]`]
+
 ---
 
-# ✨ Version 1 Features
+## ✨ Version 1 — Built and Tested
 
-Current Version 1 includes:
-
-- Soil moisture sensing
-- ADC averaging to reduce sensor noise
-- Binary wet/dry classification
-- Wi-Fi Access Point
-- Embedded web interface
+- Soil moisture sensing via capacitive sensor (ADC)
+- 10-reading averaging to reduce sensor noise ([evidence](analysis/noise_reduction_summary.md) — raw ~200–500 unit variance reduced to ~100–200 units)
+- Five-consecutive-reading confirmation to prevent state oscillation
+- Binary wet/dry classification against a calibrated threshold (36,000 ADC units, [calibration data](datasets/calibration_runs_raw.txt))
+- Self-hosted Wi-Fi Access Point + colour-coded web interface (no external server dependency)
 - LED status indication
-- Configurable sampling interval
+- Configurable sampling interval (10s demo / 5min field deployment)
+
+Firmware: [`firmware/main.py`](firmware/main.py) · Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
 
 ---
 
-# 🔬 Engineering Process
+## 🔬 Engineering Process
 
-Rather than simply adding features, Wispour is developed through an iterative engineering process.
-
-Each new version is based on evidence collected through controlled experiments.
+Each version is built on evidence from controlled experiments, not assumptions:
 
 ```
-Problem
-
-↓
-
-Prototype
-
-↓
-
-Experiment
-
-↓
-
-Collect Evidence
-
-↓
-
-Identify Limitations
-
-↓
-
-Improve System
-
-↓
-
-Repeat
+Problem → Prototype → Experiment → Collect Evidence
+   ↑                                       ↓
+   ←──────── Improve System ← Identify Limitations
 ```
 
-This allows every improvement to be justified by experimental findings rather than assumptions.
+Example of this loop in practice: an initial arbitrary threshold (16,500, used in the pre-hardware C simulation) was replaced by a placeholder (37,114) once running on real hardware, then replaced again by a calibrated value (36,000) once real dry/wet data was collected — and the comparison logic itself was corrected after calibration data showed dry soil produces *higher* ADC readings than wet soil, not lower. See [`firmware/archive/`](firmware/archive/) for the earlier versions.
 
 ---
 
-# 🧪 Experiments
+## 🧪 Experiments
 
-One of the main focuses of the project is understanding soil behaviour.
+Current experiments investigate:
 
-Current experiments investigate questions such as:
+- How does the sensor respond immediately after water is added? → [TC4 transition test](datasets/TC4_threshold_transition_raw.txt)
+- How repeatable are readings across separate calibration runs? → [calibration summary](analysis/calibration_summary.md) (dry avg varied by max 1,707 units across 3 runs; wet avg by only 128 units)
+- How stable are readings over time in different soil states? → [TC2 stability test](datasets/TC2_stability_test_raw.txt)
+- What are the limits of a binary wet/dry model? → [Key Finding](#-key-finding) above
+- Does averaging meaningfully reduce noise? → [TC3 noise test](analysis/noise_reduction_summary.md)
 
-- How does the soil moisture sensor respond after water is added?
-- How repeatable are sensor readings?
-- How long does soil take to stabilise?
-- What limitations exist within a binary wet/dry model?
-- How can these observations improve future versions of the system?
+Full experimental methodology: [`experiments/test_plan.md`](experiments/test_plan.md)
 
-Future experiments will be automated using SD card logging to enable long-duration data collection without manual supervision.
-
----
-
-# 🧠 What I've Learned
-
-This project has introduced me to multiple engineering disciplines while solving a real-world problem.
-
-## Embedded Systems
-
-- ADC sampling
-- GPIO
-- SPI communication
-- Sensor integration
-- SD card communication
-
-## IoT
-
-- Wi-Fi networking
-- Embedded web servers
-- Browser-based interfaces
-
-## Software Engineering
-
-- Modular Python development
-- State machines
-- System architecture
-- Version control
-
-## Experimental Design
-
-- Controlled experiments
-- Hypothesis-driven testing
-- Repeatability
-- Evidence-based development
-
-## Data Collection & Analysis
-
-- Sensor calibration
-- Data logging
-- Noise reduction through averaging
-- Behavioural analysis
-- Statistical thinking
-
-## Systems Engineering
-
-- Breaking complex systems into subsystems
-- Identifying assumptions and limitations
-- Iterative improvement
-- Designing based on evidence
+Version 2 experiments will use automated SD card logging to run long-duration tests (soil stabilisation over hours/days) without manual supervision — not achievable with V1's REPL-based manual data collection.
 
 ---
 
-# 🚧 Current Development
+## 🚧 Current Development (Version 2)
 
-Version 2 is currently under development.
-
-Current work includes:
-
-- Automated SD card data logging
-- Battery-powered operation
-- Long-duration controlled experiments
-- Soil stabilisation analysis
-- Behaviour-based soil state modelling
-- Improving the overall system architecture
+| Item | Status |
+|---|---|
+| SD card logging (SPI) | `[e.g. hardware wired, driver in progress]` |
+| Battery-powered operation | `[status]` |
+| Long-duration stabilisation experiments | `[blocked on SD logging / in progress]` |
+| Behaviour-based soil state modelling (replacing binary classification) | `[design stage / early implementation]` |
 
 ---
 
-# 🚀 Roadmap
+## 🚀 Roadmap
 
-## ✅ Version 1
+**✅ Version 1** — soil moisture monitoring, binary classification, web interface, calibration
 
-- Soil moisture monitoring
-- Binary wet/dry classification
-- Web interface
-- Calibration
+**🚧 Version 2 (current)** — SD card logging, automated long-duration experiments, behavioural/stabilisation analysis, improved soil state modelling
 
-## 🚧 Version 2 (Current)
-
-- SD card logging
-- Automated experimentation
-- Behavioural analysis
-- Improved soil state modelling
-
-## 🔮 Future Versions
-
-- Statistical analysis
-- Machine learning exploration
-- Cloud connectivity
-- Predictive irrigation recommendations
-- Multi-sensor integration
+**🔮 Future** — statistical analysis of logged data, multi-sensor integration
 
 ---
 
-# 💭 Philosophy
+## 🧠 Skills Demonstrated (with evidence)
 
-One of the biggest lessons from this project has been that building a working system is only one part of engineering.
-
-Understanding why a system behaves the way it does requires observation, experimentation, documentation, and continual refinement.
-
-Rather than treating Version 1 as a finished product, Wispour is being developed as an evolving engineering project where each experiment informs the design of the next iteration.
+| Area | Evidence |
+|---|---|
+| Embedded systems (ADC, GPIO, sensor integration) | [`firmware/main.py`](firmware/main.py) |
+| IoT / networking | Self-hosted AP + HTTP server, no external dependency — [`firmware/main.py`](firmware/main.py) |
+| Experimental design | Controlled, repeated-trial calibration (3 runs) — [`experiments/test_plan.md`](experiments/test_plan.md) |
+| Data collection | Raw, timestamped logs preserved, not just summaries — [`datasets/`](datasets/) |
+| Data analysis | Damp-soil drift finding, transient-reading identification — [Key Finding](#-key-finding) |
+| Iterative engineering | Threshold and logic corrections across 3 firmware versions — [`firmware/archive/`](firmware/archive/) |
 
 ---
 
-# 📈 Current Progress
+## 📈 Progress
 
-This project is actively being developed.
-
-The repository documents not only the implementation of the system, but also the engineering process, experiments, design decisions, and lessons learned throughout development.
+This repository documents the implementation, the experiments behind each design decision, and the specific limitations found along the way — see [`docs/design_decisions.md`](docs/design_decisions.md) for the fuller reasoning behind architecture choices (e.g. why the system runs entirely on-device with no external server).
