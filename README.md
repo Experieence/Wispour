@@ -70,10 +70,10 @@ Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
   <!-- Second Row -->
   <tr>
     <td>
-      <img width="100%" alt="Testing setup outside" src="https://github.com/user-attachments/assets/b7af5132-f5f0-4796-9520-87cd3eb7f18d" />
+      <img width="50%" alt="Testing setup outside" src="https://github.com/user-attachments/assets/b7af5132-f5f0-4796-9520-87cd3eb7f18d" />
     </td>
     <td>
-      <img width="100%" alt="Moisture sensor close-up in soil pot" src="https://github.com/user-attachments/assets/f0de5a71-e0a2-4403-bcca-6f0095d75133" />
+      <img width="50%" alt="Moisture sensor close-up in soil pot" src="https://github.com/user-attachments/assets/f0de5a71-e0a2-4403-bcca-6f0095d75133" />
     </td>
   </tr>
 </table>
