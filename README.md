@@ -25,7 +25,7 @@ WORK IN PROGRESS
 - Wi-Fi Access Point + embedded HTTP server
 - HTML/CSS (served on-device)
 
-html
+
 <table>
   <tr>
     <td>
