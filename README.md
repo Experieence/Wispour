@@ -61,7 +61,7 @@ Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
   <!-- First Row -->
   <tr>
     <td>
-      <img width="100%" alt="Soil Monitor dashboard on laptop with breadboard" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />
+      <img width="100%" alt="Soil Monitor dashboard Dry" src="https://github.com/user-attachments/assets/3c0b3a85-fe1b-4207-a980-cb6c88fcd8ec" />
     </td>
     <td>
       <img width="100%" alt="Moisture sensor close-up in soil pot" src="https://github.com/user-attachments/assets/f0de5a71-e0a2-4403-bcca-6f0095d75133" />
@@ -73,7 +73,7 @@ Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
       <img width="100%" alt="Testing setup outside" src="https://github.com/user-attachments/assets/b7af5132-f5f0-4796-9520-87cd3eb7f18d" />
     </td>
     <td>
-      <img width="100%" alt="Soil Monitor dashboard duplicate view" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />
+      <img width="100%" alt="Soil Monitor dashboard Wet" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />
     </td>
   </tr>
 </table>
