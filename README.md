@@ -58,22 +58,24 @@ Firmware: [`firmware/main.py`](firmware/main.py)
 Full write-up: [`docs/Final_Report.pdf`](docs/Final_Report.pdf)
 
 <table>
+  <!-- First Row -->
   <tr>
     <td>
-      <img width="25%" alt="Image" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />>
+      <img width="100%" alt="Soil Monitor dashboard on laptop with breadboard" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />
     </td>
-      <tr>
     <td>
-      <img width="25%" alt="Image" src="https://github.com/user-attachments/assets/f0de5a71-e0a2-4403-bcca-6f0095d75133"/>
+      <img width="100%" alt="Moisture sensor close-up in soil pot" src="https://github.com/user-attachments/assets/f0de5a71-e0a2-4403-bcca-6f0095d75133" />
     </td>
-      <tr>
+  </tr>
+  <!-- Second Row -->
+  <tr>
     <td>
-      <img width="25%" alt="Image" src="https://github.com/user-attachments/assets/b7af5132-f5f0-4796-9520-87cd3eb7f18d"/>
+      <img width="100%" alt="Testing setup outside" src="https://github.com/user-attachments/assets/b7af5132-f5f0-4796-9520-87cd3eb7f18d" />
     </td>
-      <tr>
     <td>
-      <img width="25%" alt="Image" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />
+      <img width="100%" alt="Soil Monitor dashboard duplicate view" src="https://github.com/user-attachments/assets/bd9269d0-96ac-4b4b-91b2-f3bf90105d8b" />
     </td>
+  </tr>
 </table>
 
 
