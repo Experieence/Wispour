@@ -1,8 +1,7 @@
 # 🌱 Wispour
 
-An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions. Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves. See [Key Findings](#-key-findings) below. The project is now evolving into a research-driven system combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
+An embedded IoT research project investigating soil moisture behaviour to support better irrigation decisions. Wispour began as a threshold-based soil moisture monitor on a Raspberry Pi Pico 2 W. During calibration testing, it became clear that a binary "wet/dry" model doesn't reflect how soil actually behaves. See [Key Findings](#-key-findings) below. The project is now evolving into a system built with response to data. Combining embedded systems, controlled experimentation, automated data logging, and data analysis to build a more representative model of soil behaviour.
 
-https://github.com/user-attachments/assets/cdac1a55-bdc6-4103-992b-1aacb4f84435
 
 **Status:** Active development — Version 2 in progress.
 
@@ -25,6 +24,8 @@ WORK IN PROGRESS
 - ADC sampling
 - Wi-Fi Access Point + embedded HTTP server
 - HTML/CSS (served on-device)
+
+https://github.com/user-attachments/assets/cdac1a55-bdc6-4103-992b-1aacb4f84435
 
 **Version 2 (in progress):**
 - SPI: SD card logging — [status: `[e.g. wiring complete, driver code in progress / basic writes working, not yet integrated into main loop]`]
