@@ -25,7 +25,18 @@ WORK IN PROGRESS
 - Wi-Fi Access Point + embedded HTTP server
 - HTML/CSS (served on-device)
 
-https://github.com/user-attachments/assets/cdac1a55-bdc6-4103-992b-1aacb4f84435
+html
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/cdac1a55-bdc6-4103-992b-1aacb4f84435" controls width="100%"></video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/df86e5c1-d944-4252-988b-8bf163a057e3" controls width="100%"></video>
+    </td>
+  </tr>
+</table>
+
 
 **Version 2 (in progress):**
 - SPI: SD card logging — [status: `[e.g. wiring complete, driver code in progress / basic writes working, not yet integrated into main loop]`]
